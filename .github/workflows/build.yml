@@ -19,8 +19,10 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - name: Install Bun
-        run: curl -fsSL https://bun.sh/install | bash
-      - name: Install all of dependencies
+        run: |
+          curl -fsSL https://bun.sh/install | bash
+          export PATH=$HOME/.bun/bin:$PATH  # Bun 설치 후 경로 설정
+      - name: Install all dependencies
         run: bun install
       - name: Build
         run: bun run build
