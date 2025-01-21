@@ -1,0 +1,26 @@
+on:
+  push:
+    branches:
+      - '**'
+name: build
+jobs:
+  build:
+    name: build
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [20.13.1]
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Install Bun
+        run: curl -fsSL https://bun.sh/install | bash
+      - name: Install all of dependencies
+        run: bun install
+      - name: Build
+        run: bun run build
