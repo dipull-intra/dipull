@@ -18,7 +18,8 @@ export const GET = async (req: NextRequest) => {
 
     const { searchParams } = new URL(req.url!);
     const token = searchParams.get("token") || "";
-    const public_key = await axios.get(`${process.env.NEXT_PUBLIC_DIMIGOIN_URI}/oauth/public`);
+    const fetchUrl = process.env.DIPULL_ENV === "true" ? "http://dipull-auth:3000" : process.env.NEXT_PUBLIC_DIMIGOIN_URI;
+    const public_key = await axios.get(`${fetchUrl}/oauth/public`);
     const public_key_encodes = await jose.importSPKI(public_key.data, "RS256");
     const decodedToken = await jose.jwtVerify<{
       data: UserInfo;
