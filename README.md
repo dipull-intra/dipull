@@ -103,3 +103,4 @@ Github의 `Main` 브랜치에 `Merge`하면 `Vercel`을 통해 자동으로 배�
 여러분들은 권한이 없기 때문에 `Main` 브랜치에 `Push` 및 배포를 직접 할 수 없습니다.
 
 또한 `Main` 브랜치에 직접 `Push`하지 않고 `Github Pull Request`를 통해 `Merge`를 요청해주세요.
+ 
