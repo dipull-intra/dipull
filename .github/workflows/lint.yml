@@ -4,8 +4,8 @@ on:
       - '**'
 name: lint
 jobs:
-  lint:
-    name: lint
+  lint-dipull:
+    name: lint-dipull
     runs-on: ubuntu-latest
 
     strategy:
@@ -22,5 +22,27 @@ jobs:
         run: |
           curl -fsSL https://bun.sh/install | bash
           export PATH=$HOME/.bun/bin:$PATH  # Bun 설치 후 경로 설정
+          cd dipull
+          bun install
+          bun run lint
+  lint-dipull-auth:
+    name: lint-dipull-auth
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [20.13.1]
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Install bun and Lint Test
+        run: |
+          curl -fsSL https://bun.sh/install | bash
+          export PATH=$HOME/.bun/bin:$PATH  # Bun 설치 후 경로 설정
+          cd dipull-auth
           bun install
           bun run lint
