@@ -1,0 +1,49 @@
+version: '3'
+
+services:
+  dipull-db:
+    image: mongodb/mongodb-community-server:latest
+    container_name: dipull-db
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./data:/data/db
+      - ./init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
+    environment:
+      MONGODB_INITDB_ROOT_USERNAME: root
+      MONGODB_INITDB_ROOT_PASSWORD: example
+    
+  dipull:
+    image: oven/bun:latest
+    container_name: dipull
+    working_dir: /dipull
+    volumes:
+      - ./dipull:/dipull
+    ports:
+      - "3000:3000"
+    command: ["sh", "-c", "bun install && bun run dev"]
+    environment:
+      NODE_ENV: production
+      DIPULL_ENV: false
+      NEXT_PUBLIC_DIMIGOIN_URI: https://auth.dimigo.net
+      NEXT_PUBLIC_DIMIGOIN_KEY: 661f3ae926aa65d7d37f4dbd
+    env_file:
+      - .env
+      - .envs/dipull
+    
+  dipull-auth:
+    image: oven/bun:latest
+    container_name: dipull-auth
+    working_dir: /dipull-auth
+    volumes:
+      - ./dipull-auth:/dipull-auth
+    ports:
+      - "3001:3000"
+    command: ["sh", "-c", "bun install && bun run dev"]
+    environment:
+      NODE_ENV: production
+      DIPULL_ENV: false
+      NEXT_PUBLIC_DIMIGOIN_KEY: 661f3ae926aa65d7d37f4dbd
+    env_file:
+      - .env
+      - .envs/dipull-auth
