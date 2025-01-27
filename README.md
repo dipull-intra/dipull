@@ -81,6 +81,14 @@ VScode 실행 후, `settings.json`을 열어 아래의 설정을 추가해주세
 ```bash
 docker compose up
 ```
+<br>
+
+종료 시 아래의 명령어를 입력해주세요.
+```bash
+docker compose down
+```
+
+<br>
 
 개발 서버가 실행되면 [http://localhost:3000](http://localhost:3000)에서 `Dipull`의 로컬 개발 서버를, [http://localhost:3001](http://localhost:3001)에서 `Dipull Auth`의 로컬 개발 서버를 확인할 수 있습니다.
 
@@ -88,7 +96,12 @@ docker compose up
 
 파일을 수정할 때마다 페이지가 자동으로 업데이트됩니다.
 
-## 2) Production 서버 실행 
+## 2) Develop 서버 패키지 설치/삭제
+```bash
+docker exec -t <dipull/dipull-auth> bun <add/remove> <package-name>
+```
+
+## 3) Production 서버 실행 
 
 아래의 명령어를 입력하여 프로젝트를 빌드 및 실행 할 수 있습니다.
 
@@ -96,7 +109,7 @@ docker compose up
 docker compose -f docker-compose.prd.yml up
 ```
 
-## 3) 배포
+## 4) 배포
 
 Github의 `Main` 브랜치에 `Merge`하면 `Vercel`을 통해 자동으로 배포됩니다.
 
