@@ -1,0 +1,12 @@
+{
+  "crons": [
+    {
+      "path": "/timetable/cron",
+      "schedule": "0 22 * * *"
+    },
+    {
+      "path": "/meal/cron",
+      "schedule": "0 22 * * *"
+    }
+  ]
+}

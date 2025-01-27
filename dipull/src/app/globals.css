@@ -1,0 +1,51 @@
+@import url('https://webfontworld.github.io/sunn/SUIT.css');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  font-family: "SUIT", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  word-break: keep-all;
+  transition: var(--transition-default);
+}
+
+.wmde-markdown {
+  background: transparent !important;
+}
+
+@layer base {
+  :root{
+    --key-interval: 300ms;
+    --transition-default: color var(--key-interval) ease-in-out, background-color var(--key-interval) ease-in-out, border var(--key-interval) ease-in-out;
+
+    --color-background-light: 250 250 255;
+    --color-text-light: 11 17 54;
+    --color-white-light: 255 255 255;
+
+    --color-background-dark: 0 0 0;
+    --color-text-dark: 250 250 255;
+    --color-white-dark: 11 11 23;
+
+    --color-background: var(--color-background-light);
+    --color-text: var(--color-text-light);
+    --color-white: var(--color-white-light);
+  }
+}
+
+@keyframes rainbow {
+  0% {
+    background-position: 100% 0%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+.rainbow {
+  background: linear-gradient(to right, rgb(118, 56, 250), rgb(255, 214, 0), rgb(255, 122, 0), rgb(255, 1, 105), rgb(211, 0, 197), rgb(118, 56, 250), rgb(255, 214, 0));
+  background-size: 400% 100%;
+  animation: rainbow 2s linear infinite;
+}
