@@ -5,7 +5,7 @@ on:
 name: build
 jobs:
   dipull:
-    name: build-dipull
+    name: dipull
     runs-on: ubuntu-latest
 
     strategy:
@@ -26,7 +26,7 @@ jobs:
           bun install
           bun run build
   dipull-auth:
-    name: build-dipull-auth
+    name: dipull-auth
     runs-on: ubuntu-latest
 
     strategy:

@@ -4,8 +4,8 @@ on:
       - '**'
 name: lint
 jobs:
-  lint-dipull:
-    name: lint-dipull
+  dipull:
+    name: dipull
     runs-on: ubuntu-latest
 
     strategy:
@@ -25,8 +25,8 @@ jobs:
           cd dipull
           bun install
           bun run lint
-  lint-dipull-auth:
-    name: lint-dipull-auth
+  dipull-auth:
+    name: dipull-auth
     runs-on: ubuntu-latest
 
     strategy:
