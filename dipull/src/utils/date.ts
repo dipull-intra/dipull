@@ -16,9 +16,9 @@ const stayApplyTimes = async (): Promise<{
   [key: string]: { day: number; hour: number };
 }> => {
   return {
-    1: { day: 2, hour: 23 },
-    2: { day: 2, hour: 23 },
-    3: { day: 1, hour: 23 },
+    1: { day: 1, hour: 22 },
+    2: { day: 1, hour: 22 },
+    3: { day: 1, hour: 22 },
   } as {
     [key: string]: { day: number; hour: number };
   };
@@ -27,9 +27,9 @@ const homecomingApplyTimes = async (): Promise<{
   [key: string]: { day: number; hour: number };
 }> => {
   return {
-    1: { day: 2, hour: 23 },
-    2: { day: 2, hour: 23 },
-    3: { day: 2, hour: 23 },
+    1: { day: 4, hour: 22 },
+    2: { day: 4, hour: 22 },
+    3: { day: 4, hour: 22 },
   } as {
     [key: string]: { day: number; hour: number };
   };
@@ -51,13 +51,14 @@ export const isApplyAvail = async (number: number, type: "stay" | "homecoming" =
   const avil = await (type === "stay" ? stayApplyTimes : homecomingApplyTimes)();
 
   const week = moment(await getWeekStart(), "YYYY-MM-DD");
+  if (type === "stay")
+    week.set({ hour: 18 });
   const end = week.clone().set({
     day: avil[String(grade)].day,
     hour: avil[String(grade)].hour,
   });
 
-  if(m.isBetween(week, end)) return true;
-  return false;
+  return m.isBetween(week, end);
 };
 
 const machineApplyAvailableTime = async () => ({
