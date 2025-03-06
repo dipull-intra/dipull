@@ -4,7 +4,7 @@ import React from "react";
 
 export const generateMetadata = async (): Promise<Metadata> => {
   return {
-    title: "대나무 숲 :: 디풀",
+    title: "자유 게시판 :: 디풀",
   };
 };
 

@@ -45,7 +45,7 @@ function Home() {
             src="https://lh3.googleusercontent.com/a/ACg8ocKyDiVdNK5iuPoyj3TGnsK7daSEj3ciCDPT99KKr_qq10tUvmoC=s96-c"
             alt="profile"
           />
-          <p className="text-xl font-semibold select-none transition-all whitespace-nowrap text-text dark:text-text-dark">대나무 숲</p>
+          <p className="text-xl font-semibold select-none transition-all whitespace-nowrap text-text dark:text-text-dark">자유 게시판</p>
           <p className="text-xl font-semibold select-none transition-all text-text dark:text-text-dark">|</p>
           <Select.Title
             label="정렬 기준 선택하기"
