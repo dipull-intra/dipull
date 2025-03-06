@@ -19,6 +19,7 @@ export const middleware = async (request: NextRequest) => {
     }
   
     if(!(request.nextUrl.pathname.startsWith("/login") || request.nextUrl.pathname.startsWith("/oauth"))){
+      console.log(verified);
       if(!verified.ok) {
         return NextResponse.redirect(new URL("/login", origin));
       }
