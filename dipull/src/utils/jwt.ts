@@ -9,6 +9,7 @@ const accessSign = async (data: UserInfo) => {
   return new jose.SignJWT(data)
     .setProtectedHeader({ alg: "HS256" })
     .setIssuedAt()
+    .setExpirationTime("30d")
     .sign(secret);
 };
 
