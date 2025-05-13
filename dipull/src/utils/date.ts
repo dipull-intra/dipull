@@ -16,9 +16,9 @@ const stayApplyTimes = async (): Promise<{
   [key: string]: { day: number; hour: number };
 }> => {
   return {
-    1: { day: 2, hour: 22 },
-    2: { day: 2, hour: 22 },
-    3: { day: 2, hour: 22 },
+    1: { day: 1, hour: 22 },
+    2: { day: 1, hour: 22 },
+    3: { day: 1, hour: 22 },
   } as {
     [key: string]: { day: number; hour: number };
   };
@@ -50,7 +50,7 @@ export const isApplyAvail = async (number: number, type: "stay" | "homecoming" =
   const m = moment().utcOffset("+0900");
   const avil = await (type === "stay" ? stayApplyTimes : homecomingApplyTimes)();
 
-  const week = moment(await getWeekStart(), "YYYY-MM-DD").utcOffset("+0900");
+  const week = moment(await getWeekStart(), "YYYY-MM-DD").tz("Asia/Seoul");
   console.log(week);
   console.log(m);
   if (type === "stay")
