@@ -4,18 +4,17 @@ import React from "react";
 
 import Label from "../label";
 
-interface RowSelectProps {
-  label?: string;
-  list?: string[];
-  onClick?: (_value: string, _index: number) => void | Promise<void>;
-}
+import { SelectProps } from ".";
 
-const RowSelect = ({
+const Row = ({
+  value,
   label,
-  list = [],
+  options = [],
   onClick = () => { },
-}: RowSelectProps) => {
-  const [selected, setSelected] = React.useState<number>(0);
+}: SelectProps) => {
+  const [selected, setSelected] = React.useState(
+    value ? options.indexOf(value) : 0
+  );
   return (
     <Label text={label}>
       <div className="w-full rounded-xl border border-key/20 p-1 flex flex-row items-center justify-center relative">
@@ -25,12 +24,12 @@ const RowSelect = ({
             style={{
               transform: `translateX(${selected * 100}%)`,
               transition: "transform 0.1s ease-out",
-              width: `${100 / list.length}%`
+              width: `${100 / options.length}%`
             }}
           />
         </div>
         {
-          list.map((item, index) => (
+          options.map((item, index) => (
             <div
               key={index}
               className={[
@@ -55,4 +54,4 @@ const RowSelect = ({
   );
 };
 
-export default RowSelect;
+export default Row;

@@ -36,7 +36,7 @@ html {
   }
 
   * {
-    @apply font-wanted font-medium text-key;
+    @apply font-wanted font-medium text-key text-start;
   }
 
   .button {
@@ -44,5 +44,8 @@ html {
   }
   .button-scale {
     @apply hover:bg-key/10 rounded-lg p-2 -m-2 active:scale-90 transition-all duration-300 ease-out cursor-pointer;
+  }
+  .button-only-scale {
+    @apply hover:bg-key/10 active:scale-90 transition-all duration-300 ease-out cursor-pointer;
   }
 }

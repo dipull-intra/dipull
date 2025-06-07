@@ -1,6 +1,7 @@
 "use client";
 
 import ArrowDown from "./arrowDown";
+import Article from "./article";
 import Beenhere from "./beenhere";
 import Check from "./check";
 import Hardware from "./hardware";
@@ -33,6 +34,7 @@ const Icons = {
   Beenhere,
   ArrowDown,
   Check,
+  Article,
 };
 
 export type IconType = keyof typeof Icons;
