@@ -1,53 +1,36 @@
-version: "3"
-
 services:
-  dipull-db:
+  semothon-db:
     image: mongodb/mongodb-community-server:5.0-ubuntu2004
-    container_name: dipull-db
+    container_name: db
+    command: mongod --quiet --logpath /dev/null
     ports:
       - "27017:27017"
     volumes:
-      - ./data:/data/db
-      - ./init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
+      - ./.data:/data/db
+      # - ./common/init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
     environment:
       MONGODB_INITDB_ROOT_USERNAME: root
       MONGODB_INITDB_ROOT_PASSWORD: example
     
-  dipull:
+  semothon:
     image: oven/bun:1.2.0
-    container_name: dipull
-    working_dir: /dipull
+    container_name: app
+    working_dir: /app
     volumes:
-      - ./dipull:/dipull
+      - ./:/app
+    network_mode: host
     ports:
       - "3000:3000"
+      - "8000:8000"
     command: ["sh", "-c", "bun install && bun run dev"]
     environment:
       NODE_ENV: development
-      DIPULL_ENV: true
-      NEXT_PUBLIC_DIMIGOIN_URI: http://localhost:3001
-      NEXT_PUBLIC_DIMIGOIN_KEY: 661f3ae926aa65d7d37f4dbd
-      JWT_SECRET: example
-      CRON_SECRET: example
-      TEACHERS_CODE: example
-      MONGODB_URI: mongodb://root:example@dipull-db:27017/dipull?authSource=admin
+      MONGODB_URI: mongodb://root:example@localhost:27017/semothon?authSource=admin
+      NEXT_PUBLIC_APP_URL: http://localhost:3000
+      NEXT_PUBLIC_API_URL: http://localhost:8000
+      NEXT_PUBLIC_GOOGLE_CLIENT_ID: 437653595386-dpj6006b1cjfqrhte7ghk9988mmkh1p1.apps.googleusercontent.com
+      JWT_SECRET: test12345678
     env_file:
       - .env
-    
-  dipull-auth:
-    image: oven/bun:1.2.0
-    container_name: dipull-auth
-    working_dir: /dipull-auth
-    volumes:
-      - ./dipull-auth:/dipull-auth
-    ports:
-      - "3001:3000"
-    command: ["sh", "-c", "bun install && bun run dev"]
-    environment:
-      NODE_ENV: development
-      DIPULL_ENV: true
-      NEXT_PUBLIC_DIMIGOIN_KEY: 661f3ae926aa65d7d37f4dbd
-      JWT_SECRET: example
-      MONGODB_URI: mongodb://root:example@dipull-db:27017/dipull-auth?authSource=admin
-    env_file:
-      - .env
+    depends_on:
+      - semothon-db

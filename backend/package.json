@@ -1,0 +1,22 @@
+{
+  "name": "back",
+  "version": "1.0.50",
+  "scripts": {
+    "dev": "NODE_ENV=development bun run --watch src/index.ts",
+    "start": "NODE_ENV=production bun run src/index.ts"
+  },
+  "dependencies": {
+    "@elysiajs/cors": "^1.2.0",
+    "@elysiajs/cron": "^1.2.0",
+    "@elysiajs/jwt": "^1.2.0",
+    "@elysiajs/swagger": "^1.2.2",
+    "@notionhq/client": "^3.0.1",
+    "elysia": "^1.2.0",
+    "ics": "^3.8.1",
+    "mongoose": "^8.13.1"
+  },
+  "devDependencies": {
+    "bun-types": "latest"
+  },
+  "module": "src/index.js"
+}

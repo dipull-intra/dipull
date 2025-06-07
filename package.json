@@ -1,0 +1,36 @@
+{
+  "name": "dipull",
+  "private": true,
+  "version": "0.1.0",
+  "workspaces": [
+    "frontend",
+    "backend"
+  ],
+  "scripts": {
+    "frontend": "bun --cwd frontend",
+    "backend": "bun --cwd backend",
+    "dev": "concurrently --names \"FE,BE\" \"bun frontend dev\" \"bun backend dev\"",
+    "start": "concurrently --names \"FE,BE\" \"bun frontend start\" \"bun backend start\"",
+    "build": "bun frontend build",
+    "lint": "concurrently --names \"FE,BE\"\"bun frontend lint\" \"bun backend lint\""
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "concurrently": "^9.1.2",
+    "eslint": "^9",
+    "eslint-config-next": "^15.3.2",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-prefer-arrow": "^1.2.3",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "@tanstack/react-query": "^5.77.2",
+    "@tanstack/react-query-devtools": "^5.77.2",
+    "axios": "^1.8.4",
+    "dayjs": "^1.11.13",
+    "jotai": "^2.12.4",
+    "react-responsive": "^10.0.1"
+  }
+}

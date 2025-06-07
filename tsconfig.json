@@ -1,0 +1,17 @@
+{
+  "extends": "./common/tsconfig.json",
+  "files": [],
+  "references": [
+    { "path": "./frontend" },
+    { "path": "./backend" }
+  ],
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@front/*": ["front/src/*"],
+      "@back/*": ["back/src/*"],
+      "@common/*": ["common/src/*"],
+      "@types/*": ["common/types/*"]
+    }
+  }
+}

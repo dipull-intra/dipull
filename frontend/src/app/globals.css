@@ -1,0 +1,44 @@
+@import url("https://cdn.jsdelivr.net/gh/wanteddev/wanted-sans@v1.0.3/packages/wanted-sans/fonts/webfonts/variable/split/WantedSansVariable.min.css");
+@import "tailwindcss";
+
+@theme inline {
+  --font-wanted: "Wanted Sans Variable", "Wanted Sans", -apple-system, BlinkMacSystemFont, system-ui, "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+}
+
+html {
+  /* font-size: min(1.2vw) !important; */
+}
+
+@layer components {
+  .loading-background {
+    background: linear-gradient(270deg, #33333310, #33333305, #33333320);
+    background-size: 600% 600%;
+    animation: shimmer 2s ease infinite;
+  }
+
+  .loading-background-dark {
+    background: linear-gradient(270deg, #eeeeee10, #eeeeee05, #eeeeee20);
+    background-size: 600% 600%;
+    animation: shimmer 2s ease infinite;
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+}
+
+* {
+  @apply font-wanted text-stone-700 dark:text-stone-100;
+}
+
+button {
+  @apply hover:bg-stone-900/10 dark:hover:bg-stone-50/10 rounded-lg p-2 -m-2 active:scale-90 transition-all duration-300 ease-out cursor-pointer;
+}
