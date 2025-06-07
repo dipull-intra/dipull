@@ -33,27 +33,27 @@ const menu: {
       {
         icon: "Hotel",
         title: "기상송",
-        url: "/laundry",
+        url: "/wakeup",
       },
       {
         icon: "Nights",
         title: "휴일 잔류",
-        url: "/notification",
+        url: "/stay",
       },
       {
         icon: "Nature",
         title: "잔류 외출 및 급식",
-        url: "/settings",
+        url: "/out",
       },
       {
         icon: "Icecream",
         title: "조기귀가",
-        url: "/settings",
+        url: "/early",
       },
       {
         icon: "Hardware",
         title: "시설 수리",
-        url: "/settings",
+        url: "/fix",
       }
     ]
   }
@@ -61,9 +61,9 @@ const menu: {
 
 const Header = () => {
   return (
-    <div className="flex flex-col px-6 py-12 w-60 border-r border-key/8 h-full justify-between">
+    <div className="flex flex-col flex-shrink-0 px-6 py-12 w-60 border-r border-key/8 h-full justify-between">
       <div className="w-full flex flex-col gap-12">
-        <button className="w-fit">
+        <button className="w-fit button-scale">
           <div className="flex flex-row items-center gap-2">
             <Icons.Logo className="w-8 h-8 fill-key" />
             <h1 className="font-bold text-2xl">Dipull</h1>
@@ -83,10 +83,10 @@ const Header = () => {
         </div>
       </div>
 
-      <button>
+      <button className="button-scale">
         <div className="flex flex-row items-center gap-3">
           <img
-            src=""
+            src="https://avatars.githubusercontent.com/u/100000000?s=200&v=4"
             alt=""
             className="bg-key/10 rounded-full w-8 h-8 object-cover"
           />

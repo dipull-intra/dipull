@@ -18,7 +18,9 @@ const Button = (
   }
   & React.HTMLAttributes<HTMLButtonElement> 
 ) => { 
-  const Icon = Icons[icon];
+  const Icon = React.useMemo(() => {
+    return Icons[icon];
+  }, [icon]);
   const pathname = usePathname();
   const clicked = React.useMemo(() => {
     const normalize = (str: string) => str.replace(/\/$/, "");
@@ -30,7 +32,7 @@ const Button = (
       href={url}
       className="w-full"
     >
-      <button {...props} className={["w-full", props.className].join(" ")}>
+      <button {...props} className={["w-full button-scale", props.className].join(" ")}>
         <div className="w-full flex flex-row items-center gap-2">
           <Icon className="w-6 h-6 fill-key" fill={clicked} />
           <h2 className={[

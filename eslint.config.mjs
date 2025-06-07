@@ -46,7 +46,14 @@ const lint = [
       "semi": ["error", "always"],
       "react-native/no-inline-styles": "off",
       "react-hooks/exhaustive-deps": "off",
-      "no-unused-vars": "warn",
+      "no-unused-vars": [
+        "error",
+        {
+          args: "after-used",
+          argsIgnorePattern: "^_",
+          varsIgnorePattern: "^_",
+        },
+      ],
       "@next/next/no-img-element": "off",
       "import/order": [
         "error",

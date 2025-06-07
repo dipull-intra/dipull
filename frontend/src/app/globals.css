@@ -39,7 +39,10 @@ html {
     @apply font-wanted font-medium text-key;
   }
 
-  button {
+  .button {
+    @apply bg-key/5 hover:bg-key/10 active:bg-key/20 transition-all duration-300 ease-out cursor-pointer;
+  }
+  .button-scale {
     @apply hover:bg-key/10 rounded-lg p-2 -m-2 active:scale-90 transition-all duration-300 ease-out cursor-pointer;
   }
 }

@@ -40,8 +40,10 @@ const RootLayout = ({
     <html lang="ko" className="h-full w-full overflow-x-hidden">
       <body className="antialiased h-full w-full bg-backround">
         <Providers>
-          <Header />
-          {children}
+          <div className="w-full h-full flex flex-row">
+            <Header />
+            {children}
+          </div>
         </Providers>
       </body>
     </html>
