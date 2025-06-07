@@ -38,7 +38,7 @@ const RootLayout = ({
 }>) => {
   return (
     <html lang="ko" className="h-full w-full overflow-x-hidden">
-      <body className="antialiased bg-stone-50 dark:bg-stone-800 h-full w-full">
+      <body className="antialiased h-full w-full bg-backround">
         <Providers>
           <Header />
           {children}

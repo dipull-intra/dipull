@@ -30,6 +30,7 @@
     "@tanstack/react-query-devtools": "^5.77.2",
     "axios": "^1.8.4",
     "dayjs": "^1.11.13",
+    "gsap": "^3.13.0",
     "jotai": "^2.12.4",
     "react-responsive": "^10.0.1"
   }
