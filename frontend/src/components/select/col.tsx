@@ -11,6 +11,7 @@ const Col = ({
   value,
   label = "",
   options = [],
+  values,
   placeholder = "",
   onClick = () => { },
 }: SelectProps) => { 
@@ -71,12 +72,12 @@ const Col = ({
                     if (selected === index) {
                       setSelected(-1);
                       setOpen(false);
-                      await onClick("", -1);
+                      await onClick("", -1, "");
                       return;
                     }
                     setSelected(index);
                     setOpen(false);
-                    await onClick(option, index);
+                    await onClick(option, index, values ? values[index] : undefined);
                   }}
                 >
                   {

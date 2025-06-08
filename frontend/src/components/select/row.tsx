@@ -10,10 +10,11 @@ const Row = ({
   value,
   label,
   options = [],
+  values,
   onClick = () => { },
 }: SelectProps) => {
   const [selected, setSelected] = React.useState(
-    value ? options.indexOf(value) : 0
+    value ? values ? values.indexOf(value) : options.indexOf(value) : 0
   );
   return (
     <Label text={label}>
@@ -37,7 +38,7 @@ const Row = ({
               ].join(" ")}
               onClick={async () => {
                 setSelected(index);
-                await onClick(item, index);
+                await onClick(item, index, values ? values[index] : undefined);
               }}
             >
               <p className={[
