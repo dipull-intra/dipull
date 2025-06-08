@@ -5,11 +5,11 @@ import Icons from "@front/components/icons";
 
 const Element = () => {
   return (
-    <div className="w-full flex flex-row items-center gap-4">
+    <div className="w-full flex flex-row max-md:flex-col max-md:items-start items-center gap-4">
       <img
         src="https://i.ytimg.com/vi/b8ezAbI4H-M/sddefault.jpg"
         alt="기상송 검색 썸네일"
-        className="object-cover aspect-video h-32 bg-key/5 rounded-xl transition-all duration-100 peer peer-hover:opacity-80"
+        className="object-cover aspect-video h-32 max-md:w-full max-md:h-auto bg-key/5 rounded-xl transition-all duration-100 peer peer-hover:opacity-80"
       />
       <div className="flex flex-col gap-4">
         <div className="flex flex-col gap-2 w-full">

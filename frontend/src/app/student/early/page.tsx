@@ -17,10 +17,10 @@ const Early = () => {
   const [time, setTime] = React.useState<EarlyTime>("end-of-day");
 
   return (
-    <div className="w-full h-full p-6 flex flex-col gap-9 overflow-y-auto">
+    <div className="w-full h-full p-6 max-md:p-4 flex flex-col gap-9 overflow-y-auto">
       <IconTitle icon="Nights">조기귀가 신청하기</IconTitle>
 
-      <div className="w-full max-w-lg flex flex-col gap-6">
+      <div className="w-full max-w-lg max-md:max-w-full flex flex-col gap-6">
         <Label text="이번 주 조기 귀가일">
           <p className="font-bold text-xl">6월 5일 목요일</p>
         </Label>

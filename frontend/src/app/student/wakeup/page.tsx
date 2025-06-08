@@ -13,10 +13,10 @@ import Search from "./search";
 
 const Wakeup = () => {
   return (
-    <div className="w-full h-full p-6 flex flex-col gap-9 overflow-y-auto">
+    <div className="w-full h-full p-6 max-md:p-4 flex flex-col gap-9 overflow-y-auto">
       <div className="flex flex-col gap-4">
         <IconTitle icon="Hotel">신청곡 검색하기</IconTitle>
-        <div className="w-full max-w-lg">
+        <div className="w-full max-w-lg max-md:max-w-full">
           <Input
             type="text"
             label="검색어 입력"
@@ -25,7 +25,7 @@ const Wakeup = () => {
               console.log(e.target.value);
             }}
           >
-            <div className="w-28 flex-shrink-0">
+            <div className="w-28 max-md:w-12 flex-shrink-0">
               <Button label="검색하기">
                 <Icons.Search className="w-4 h-4" />
               </Button>
@@ -50,10 +50,12 @@ const Wakeup = () => {
 
       <div className="w-full flex flex-col gap-4">
         <IconTitle icon="Article">이번주 신청곡 순위</IconTitle>
-        <Element />
-        <Element />
-        <Element />
-        <Element />
+        <div className="w-full flex flex-col gap-4 max-md:gap-10">
+          <Element />
+          <Element />
+          <Element />
+          <Element />
+        </div>
       </div>
       
     </div>

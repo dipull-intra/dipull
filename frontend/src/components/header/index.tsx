@@ -60,43 +60,63 @@ const menu: {
 ];
 
 const Header = () => {
+  const [open, setOpen] = React.useState(false);
   return (
-    <div className="flex flex-col flex-shrink-0 px-6 py-12 w-60 border-r border-key/8 h-full justify-between">
-      <div className="w-full flex flex-col gap-12">
-        <button className="w-fit button-scale">
-          <div className="flex flex-row items-center gap-2">
-            <Icons.Logo className="w-8 h-8 fill-key" />
-            <h1 className="font-bold text-2xl">Dipull</h1>
+    <>
+      <div
+        className="w-10 h-10 fixed top-7.5 right-8 z-50 hidden max-md:flex items-center justify-center bg-key rounded-full button-scale border-2 border-background"
+        onClick={() => setOpen(p => !p)}
+      >
+        <Icons.LogoToClose
+          className="w-6 h-6"
+          fillClassName="fill-background"
+          fill={open}
+        />
+      </div>
+      <div className={[
+        "flex flex-col flex-shrink-0 px-6 py-12 w-60 border-r border-key/8 h-full justify-between",
+        "max-md:border-0 max-md:justify-start max-md:gap-9 max-md:fixed max-md:top-0 max-md:left-0 max-md:w-full max-md:h-full",
+        "max-md:bg-background/80 max-md:backdrop-blur-lg max-md:z-40 max-md:py-6",
+        "max-md:transition-all max-md:duration-500",
+        open ? "max-md:translate-x-0" : "max-md:translate-x-full",
+      ].join(" ")}>
+        <div className="w-full flex flex-col gap-12 max-md:gap-9">
+          <button className="w-fit button-scale">
+            <div className="flex flex-row items-center gap-2">
+              <Icons.Logo className="w-8 h-8 fill-key" />
+              <h1 className="font-bold text-2xl">Dipull</h1>
+            </div>
+          </button>
+          <div className="flex flex-col w-full gap-6 max-md:gap-3">
+            {
+              menu[0].list.map((item, index) => (
+                <Button
+                  key={index}
+                  icon={item.icon}
+                  title={item.title}
+                  url={url(item.url, menu[0].type)}
+                  onClick={() => setOpen(false)}
+                />
+              ))
+            }
+          </div>
+        </div>
+
+        <button className="button-scale max-md:px-6">
+          <div className="flex flex-row items-center gap-3 w-full justify-start max-md:justify-end">
+            <img
+              src="https://avatars.githubusercontent.com/u/100000000?s=200&v=4"
+              alt=""
+              className="bg-key/10 rounded-full w-8 h-8 object-cover"
+            />
+            <div className="flex flex-col gap-0.5 items-start">
+              <p className="font-normal text-xs">3학년 6반 29번</p>
+              <p>최재민</p>
+            </div>
           </div>
         </button>
-        <div className="flex flex-col w-full gap-6">
-          {
-            menu[0].list.map((item, index) => (
-              <Button
-                key={index}
-                icon={item.icon}
-                title={item.title}
-                url={url(item.url, menu[0].type)}
-              />
-            ))
-          }
-        </div>
       </div>
-
-      <button className="button-scale">
-        <div className="flex flex-row items-center gap-3">
-          <img
-            src="https://avatars.githubusercontent.com/u/100000000?s=200&v=4"
-            alt=""
-            className="bg-key/10 rounded-full w-8 h-8 object-cover"
-          />
-          <div className="flex flex-col gap-0.5 items-start">
-            <p className="font-normal text-xs">3학년 6반 29번</p>
-            <p>최재민</p>
-          </div>
-        </div>
-      </button>
-    </div>
+    </>
   );
 };
 

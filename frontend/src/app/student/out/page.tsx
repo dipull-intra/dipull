@@ -32,8 +32,8 @@ const Out = () => {
     }
   ]);
   return (
-    <div className="w-full h-full p-6 flex flex-col gap-9 overflow-y-auto">
-      <div className="flex flex-col gap-6 w-full max-w-lg">
+    <div className="w-full h-full p-6 max-md:p-4 flex flex-col gap-9 overflow-y-auto">
+      <div className="flex flex-col gap-6 w-full max-w-lg max-md:max-w-full">
         <div className="flex flex-col gap-2">
           <IconTitle icon="Nature">외출 신청하기</IconTitle>
           <p className="text-key/30">하단의 저장하기 버튼을 눌러야 외출 및 급식변경 모두 반영됩니다!</p>
@@ -109,7 +109,7 @@ const Out = () => {
       </div>
 
       
-      <div className="w-full max-w-lg">
+      <div className="w-full max-w-lg max-md:max-w-full">
         <Button>저장하기</Button>
       </div>
     </div>

@@ -40,7 +40,7 @@ const Button = (
         {
           label ? (
             <p className={[
-              "font-semibold text-background",
+              "font-semibold text-background max-md:hidden",
               scale === "big" ? "text-base" : "text-xs",
             ].join(" ")}>
               {label}

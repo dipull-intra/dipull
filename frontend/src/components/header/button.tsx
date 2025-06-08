@@ -33,7 +33,7 @@ const Button = (
       className="w-full"
     >
       <button {...props} className={["w-full button-scale", props.className].join(" ")}>
-        <div className="w-full flex flex-row items-center gap-2">
+        <div className="w-full flex flex-row items-center justify-start max-md:justify-end gap-2">
           <Icon className="w-6 h-6 fill-key" fill={clicked} />
           <h2 className={[
             "text-lg",

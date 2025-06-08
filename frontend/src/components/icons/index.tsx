@@ -14,6 +14,7 @@ import Hotel from "./hotel";
 import Icecream from "./icecream";
 import Laundry from "./laundry";
 import Logo from "./logo";
+import LogoToClose from "./logoToClose";
 import Machine from "./machine";
 import Meal from "./meal";
 import Nature from "./nature";
@@ -26,6 +27,8 @@ export interface IconProps {
 
   defaultFill?: boolean;
   fill?: boolean;
+
+  fillClassName?: string;
 }
 
 const Icons = {
@@ -49,6 +52,7 @@ const Icons = {
   Checker,
   Edit,
   Back,
+  LogoToClose,
 };
 
 export type IconType = keyof typeof Icons;

@@ -19,7 +19,7 @@ const Stay = () => {
   }, [selected]);
 
   return (
-    <div className="w-full h-full p-6 flex flex-col gap-8 overflow-y-auto">
+    <div className="w-full h-full p-6 max-md:p-4 flex flex-col gap-8 overflow-y-auto">
       <IconTitle icon="Nights">잔류 신청하기</IconTitle>
 
       <Seat
@@ -29,7 +29,7 @@ const Stay = () => {
         max={1}
       />
 
-      <div className="w-full max-w-lg">
+      <div className="w-full max-w-lg max-md:max-w-full">
         <Input
           type="text"
           label="좌석 미선택 사유"
@@ -55,7 +55,7 @@ const Stay = () => {
         <p><Link href="" className="underline" target="_blank">여기</Link>에서 잔류 신청 현황을 확인하세요!</p>
       </Label>
 
-      <div className="w-full max-w-lg">
+      <div className="w-full max-w-lg max-md:max-w-full">
         <Button>신청하기</Button>
       </div>
     </div>
