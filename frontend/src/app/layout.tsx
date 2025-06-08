@@ -37,7 +37,7 @@ const RootLayout = ({
   children: React.ReactNode;
 }>) => {
   return (
-    <html lang="ko" className="h-full w-full overflow-x-hidden">
+    <html lang="ko" className="h-full w-full overflow-x-hidden bg-background">
       <body className="antialiased h-full w-full bg-backround">
         <Providers>
           <div className="w-full h-full flex flex-row">

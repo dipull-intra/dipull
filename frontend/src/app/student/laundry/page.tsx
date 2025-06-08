@@ -39,7 +39,7 @@ const Laundry = () => {
             placeholder={`${type} 시간을 선택하세요.`}
             options={["세탁기 1", "세탁기 2", "세탁기 3"]}
           />
-          <Button label="신청하기" />
+          <Button>신청하기</Button>
         </div>
       </div>
 

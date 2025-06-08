@@ -13,6 +13,8 @@ import Logo from "./logo";
 import Machine from "./machine";
 import Nature from "./nature";
 import Nights from "./nights";
+import Search from "./search";
+import Vote from "./vote";
 
 export interface IconProps { 
   className?: string;
@@ -35,6 +37,8 @@ const Icons = {
   ArrowDown,
   Check,
   Article,
+  Search,
+  Vote,
 };
 
 export type IconType = keyof typeof Icons;

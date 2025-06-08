@@ -5,6 +5,13 @@
   --key: 11 17 54;
   --background: 255 255 255;
 }
+@media (prefers-color-scheme: dark) {
+  :root {
+    --key: 255 255 255;
+    --background: 40 40 40;
+  }
+}
+
 
 @theme inline {
   --font-wanted: "Wanted Sans Variable", "Wanted Sans", -apple-system, BlinkMacSystemFont, system-ui, "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
@@ -47,5 +54,17 @@ html {
   }
   .button-only-scale {
     @apply hover:bg-key/10 active:scale-90 transition-all duration-300 ease-out cursor-pointer;
+  }
+  .button-real-only-scale {
+    @apply transition-all active:scale-90 duration-300 ease-out cursor-pointer;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
   }
 }
