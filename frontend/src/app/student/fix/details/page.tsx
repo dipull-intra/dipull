@@ -26,7 +26,7 @@ const Fix = () => {
       </div>
       <div className="flex flex-col gap-1">
         <p className="text-2xl">ㅇㅇ층 ㅇㅇ 화장실 고장났어여</p>
-        <p className="text-xs font-normal">2024년 06월 05일 · 3629 최재민 · 남학생</p>
+        <p className="text-xs font-normal text-key/30">2024년 06월 05일 · 3629 최재민 · 남학생</p>
       </div>
       <div className="w-full border-t border-key/8" />
       <p className="font-normal">안녕하세요! x학년 x반 ㅇㅇㅇ입니다!<br />학봉관 x층 화장실 xx칸이 고장나 수리 신청 남깁니다!</p>

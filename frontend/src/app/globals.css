@@ -8,7 +8,7 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --key: 255 255 255;
-    --background: 40 40 40;
+    --background: 33 35 40;
   }
 }
 
