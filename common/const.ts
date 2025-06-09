@@ -34,3 +34,5 @@ export const mealToEng = mealMaps.fromMap as Record<string, keyof Meal["value"]>
 export const earlyTimeMaps = createMap(earlyTime, earlyTimeKorean);
 export const earlyTimeToKorean = earlyTimeMaps.toMap as Record<EarlyTime, EarlyTimeKorean>;
 export const earlyTimeToEng = earlyTimeMaps.fromMap as Record<EarlyTimeKorean, EarlyTime>;
+
+export const types = ["student", "teacher", "auth"] as const;

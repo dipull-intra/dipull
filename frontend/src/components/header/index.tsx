@@ -2,66 +2,46 @@
 
 import React from "react";
 
+import { Types } from "@common/types";
+
 import dayjs from "@front/utils/dayjs";
-import url from "@front/utils/url";
+import url, { getCurrentUrlType } from "@front/utils/url";
 
 import Icons, { IconType } from "../icons";
 
 import Button from "./button";
+import student from "./student";
+import teacher from "./teacher";
 
-const menu: {
-  type: "student" | "teacher" | "auth";
+export interface MenuProps {
+  type: Types;
   groupName?: string;
   list: {
     icon: IconType;
     title: string;
     url: string;
   }[];
-}[] = [
-  {
-    type: "student",
-    list: [
-      {
-        icon: "Home",
-        title: "홈",
-        url: "/",
-      },
-      {
-        icon: "Laundry",
-        title: "세탁 & 건조",
-        url: "/laundry",
-      },
-      {
-        icon: "Hotel",
-        title: "기상송",
-        url: "/wakeup",
-      },
-      {
-        icon: "Nights",
-        title: "휴일 잔류",
-        url: "/stay",
-      },
-      {
-        icon: "Nature",
-        title: "잔류 외출 및 급식",
-        url: "/out",
-      },
-      {
-        icon: "Icecream",
-        title: "조기귀가",
-        url: "/early",
-      },
-      {
-        icon: "Hardware",
-        title: "시설 수리",
-        url: "/fix",
-      }
-    ]
-  }
-];
+}
 
-const Header = () => {
+const Header = ({
+  origin, pathname,
+}: {
+  origin: string;
+  pathname: string;
+}) => {
   const [open, setOpen] = React.useState(false);
+  const current = getCurrentUrlType(pathname, origin);
+  const menus = React.useMemo(() => {
+    switch (current) {
+    case "student":
+      return student;
+    case "teacher":
+      return teacher;
+    default:
+      return [];
+    }
+  }, [current]);
+
   return (
     <>
       <div
@@ -76,28 +56,54 @@ const Header = () => {
       </div>
       <div className={[
         "flex flex-col flex-shrink-0 px-6 py-12 w-60 border-r border-key/8 h-full justify-between",
-        "max-md:border-0 max-md:justify-start max-md:gap-9 max-md:fixed max-md:top-0 max-md:left-0 max-md:w-full max-md:h-full",
+        "max-md:border-0 max-md:justify-start gap-9 max-md:fixed max-md:top-0 max-md:left-0 max-md:w-full max-md:h-full",
         "max-md:bg-background/80 max-md:backdrop-blur-lg max-md:z-40 max-md:py-6",
         "max-md:transition-all max-md:duration-500",
         open ? "max-md:translate-x-0" : "max-md:translate-x-full",
+        "overflow-y-auto scrollbar-hide",
       ].join(" ")}>
         <div className="w-full flex flex-col gap-12 max-md:gap-9">
           <button className="w-fit button-scale">
             <div className="flex flex-row items-center gap-2">
               <Icons.Logo className="w-8 h-8 fill-key" />
-              <h1 className="font-bold text-2xl">Dipull</h1>
+              <div className="flex flex-row items-start gap-2">
+                <h1 className="font-bold text-2xl">Dipull</h1>
+                {
+                  current === "teacher" ? (
+                    <p className="font-normal text-xs">선생님용</p>
+                  ) : current === "auth" ? (
+                    <p className="font-normal text-xs">계정센터</p>
+                  ) : null
+                }
+              </div>
             </div>
           </button>
-          <div className="flex flex-col w-full gap-6 max-md:gap-3">
+          <div className="w-full flex flex-col gap-6">
             {
-              menu[0].list.map((item, index) => (
-                <Button
-                  key={index}
-                  icon={item.icon}
-                  title={item.title}
-                  url={url(item.url, menu[0].type)}
-                  onClick={() => setOpen(false)}
-                />
+              menus.map((menu, jndex) => (
+                <div key={jndex} className="w-full flex flex-col gap-2.5 items-start max-md:items-end">
+                  {
+                    menu.groupName ? (
+                      <p className="text-xs font-semibold text-key/30 max-md:px-4">{menu.groupName}</p>
+                    ) : null
+                  }
+                  <div className={[
+                    "flex flex-col w-full",
+                    menu.groupName ? "gap-3" : "gap-6 max-md:gap-3"
+                  ].join(" ")}>
+                    {
+                      menu.list.map((item, index) => (
+                        <Button
+                          key={index}
+                          icon={item.icon}
+                          title={item.title}
+                          url={url(item.url, menu.type)}
+                          onClick={() => setOpen(false)}
+                        />
+                      ))
+                    }
+                  </div>
+                </div>
               ))
             }
           </div>
