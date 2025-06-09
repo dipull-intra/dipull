@@ -9,7 +9,6 @@ import Label from "@front/components/label";
 import url from "@front/utils/url";
 
 const Fix = () => {
-
   return (
     <div className="w-full h-full p-6 max-md:p-4 flex flex-col gap-6 overflow-y-auto">
       <IconTitle icon="Hardware">시설 수리 신청</IconTitle>

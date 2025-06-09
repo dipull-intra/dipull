@@ -40,7 +40,7 @@ const Button = (
         {
           label ? (
             <p className={[
-              "font-semibold text-background max-md:hidden",
+              "font-semibold text-background max-md:hidden flex-shrink-0 whitespace-nowrap",
               scale === "big" ? "text-base" : "text-xs",
             ].join(" ")}>
               {label}

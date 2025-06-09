@@ -4,6 +4,7 @@ import ArrowDown from "./arrowDown";
 import Article from "./article";
 import Back from "./back";
 import Beenhere from "./beenhere";
+import Calendar from "./calendar";
 import Check from "./check";
 import Checker from "./checker";
 import Close from "./close";
@@ -53,6 +54,7 @@ const Icons = {
   Edit,
   Back,
   LogoToClose,
+  Calendar,
 };
 
 export type IconType = keyof typeof Icons;

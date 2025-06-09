@@ -98,7 +98,7 @@ const Seat = ({
       <div className="flex flex-row items-center justify-start gap-4">
         <div className="flex flex-row items-center gap-2">
           <div className="w-2.5 h-2.5 rounded-xs bg-key" />
-          <p className="text-key/45 font-normal text-sm">내 좌석</p>
+          <p className="text-key/45 font-normal text-sm">선택한 좌석</p>
         </div>
         <div className="flex flex-row items-center gap-2">
           <div className="w-2.5 h-2.5 rounded-xs bg-key/30" />
