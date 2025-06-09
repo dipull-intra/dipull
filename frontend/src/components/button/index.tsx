@@ -5,17 +5,20 @@ const Button = (
     label,
     scale = "big",
     fit = false,
+    fill = true,
     ...props
   }: React.ButtonHTMLAttributes<HTMLButtonElement> & {
     label?: string;
     scale?: "big" | "small";
     fit?: boolean;
+    fill?: boolean;
   }
 ) => {
   return (
     <button
       className={[
-        "bg-key rounded-xl overflow-hidden",
+        "rounded-xl overflow-hidden",
+        fill ? "bg-key" : "border border-key/20",
         props.disabled ? "opacity-30 cursor-not-allowed" : "cursor-pointer button-only-scale",
         fit ? "w-fit" : "w-full",
         props.className,
@@ -32,6 +35,7 @@ const Button = (
             <p className={[
               "font-semibold text-background",
               scale === "big" ? "text-base" : "text-xs",
+              fill ? "text-background" : "text-key",
             ].join(" ")}>
               {props.children}
             </p>
@@ -40,8 +44,9 @@ const Button = (
         {
           label ? (
             <p className={[
-              "font-semibold text-background max-md:hidden flex-shrink-0 whitespace-nowrap",
+              "font-semibold max-md:hidden flex-shrink-0 whitespace-nowrap",
               scale === "big" ? "text-base" : "text-xs",
+              fill ? "text-background" : "text-key",
             ].join(" ")}>
               {label}
             </p>

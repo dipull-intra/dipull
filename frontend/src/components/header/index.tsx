@@ -9,6 +9,7 @@ import url, { getCurrentUrlType } from "@front/utils/url";
 
 import Icons, { IconType } from "../icons";
 
+import auth from "./auth";
 import Button from "./button";
 import student from "./student";
 import teacher from "./teacher";
@@ -37,6 +38,8 @@ const Header = ({
       return student;
     case "teacher":
       return teacher;
+    case "auth":
+      return auth;
     default:
       return [];
     }

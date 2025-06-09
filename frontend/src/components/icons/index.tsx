@@ -8,6 +8,7 @@ import Calendar from "./calendar";
 import Check from "./check";
 import Checker from "./checker";
 import Close from "./close";
+import Computer from "./computer";
 import Edit from "./edit";
 import Hardware from "./hardware";
 import Home from "./home";
@@ -20,6 +21,8 @@ import Machine from "./machine";
 import Meal from "./meal";
 import Nature from "./nature";
 import Nights from "./nights";
+import Present from "./present";
+import School from "./school";
 import Search from "./search";
 import Vote from "./vote";
 
@@ -55,6 +58,9 @@ const Icons = {
   Back,
   LogoToClose,
   Calendar,
+  Computer,
+  Present,
+  School,
 };
 
 export type IconType = keyof typeof Icons;

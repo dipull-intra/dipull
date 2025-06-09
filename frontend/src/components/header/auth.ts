@@ -1,6 +1,6 @@
 import { MenuProps } from ".";
 
-const teacher: MenuProps[] = [
+const auth: MenuProps[] = [
   {
     type: "teacher",
     groupName: "학생 대리 신청",
@@ -42,28 +42,7 @@ const teacher: MenuProps[] = [
         url: "/fix",
       },
     ],
-  },
-  {
-    type: "teacher",
-    groupName: "세부 일정",
-    list: [
-      {
-        icon: "Calendar",
-        title: "잔류 세부 일정",
-        url: "/schedule",
-      },
-      {
-        icon: "Computer",
-        title: "열람실 좌석 설정",
-        url: "/seats",
-      },
-      {
-        icon: "Machine",
-        title: "세탁/건조기 설정",
-        url: "/machine",
-      },
-    ]
   }
 ];
 
-export default teacher;
+export default auth;
