@@ -11,7 +11,7 @@ import url from "@front/utils/url";
 const Fix = () => {
 
   return (
-    <div className="w-full h-full p-6 max-md:p-4 flex flex-col gap-9 overflow-y-auto">
+    <div className="w-full p-6 max-md:p-4 flex flex-col gap-9">
       <IconTitle icon="Hardware">시설 수리 신청</IconTitle>
 
       <div className="flex flex-col gap-3 w-full">

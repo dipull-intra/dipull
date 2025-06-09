@@ -2,6 +2,7 @@
 
 import React from "react";
 
+import dayjs from "@front/utils/dayjs";
 import url from "@front/utils/url";
 
 import Icons, { IconType } from "../icons";
@@ -102,19 +103,33 @@ const Header = () => {
           </div>
         </div>
 
-        <button className="button-scale max-md:px-6">
-          <div className="flex flex-row items-center gap-3 w-full justify-start max-md:justify-end">
-            <img
-              src="https://avatars.githubusercontent.com/u/100000000?s=200&v=4"
-              alt=""
-              className="bg-key/10 rounded-full w-8 h-8 object-cover"
-            />
-            <div className="flex flex-col gap-0.5 items-start">
-              <p className="font-normal text-xs">3학년 6반 29번</p>
-              <p>최재민</p>
+        <div className="flex flex-col gap-6 w-full max-md:px-4">
+          <button className="button-scale">
+            <div className="flex flex-row items-center gap-3 w-full justify-start max-md:justify-end">
+              <img
+                src="https://avatars.githubusercontent.com/u/100000000?s=200&v=4"
+                alt=""
+                className="bg-key/10 rounded-full w-8 h-8 object-cover"
+              />
+              <div className="flex flex-col gap-0.5 items-start max-md:items-end">
+                <p className="font-normal text-xs">3학년 6반 29번</p>
+                <p>최재민</p>
+              </div>
             </div>
+          </button>
+
+          <div className="w-full border-t-0 border-key/8 flex flex-row max-md:justify-end gap-1">
+            <p className="text-xs text-key/30">
+                  © {dayjs().year()} <a href="https://github.com/jeamxn" className="text-xs text-key/30 hover:underline" target="_blank" rel="noopener noreferrer">JEAMXN</a>
+            </p>
+            <p className="text-xs text-key/30">·</p>
+            <a href="https://docs.dimigo.net/terms/privacy" target="_blank" rel="noopener noreferrer">
+              <p className="text-xs text-key/30 hover:underline">
+                개인정보처리방침
+              </p>
+            </a>
           </div>
-        </button>
+        </div>
       </div>
     </>
   );

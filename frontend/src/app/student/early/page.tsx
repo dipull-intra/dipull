@@ -17,7 +17,7 @@ const Early = () => {
   const [time, setTime] = React.useState<EarlyTime>("end-of-day");
 
   return (
-    <div className="w-full h-full p-6 max-md:p-4 flex flex-col gap-9 overflow-y-auto">
+    <div className="w-full p-6 max-md:p-4 flex flex-col gap-9">
       <IconTitle icon="Nights">조기귀가 신청하기</IconTitle>
 
       <div className="w-full max-w-lg max-md:max-w-full flex flex-col gap-6">

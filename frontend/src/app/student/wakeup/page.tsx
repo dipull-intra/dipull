@@ -13,7 +13,7 @@ import Search from "./search";
 
 const Wakeup = () => {
   return (
-    <div className="w-full h-full p-6 max-md:p-4 flex flex-col gap-9 overflow-y-auto">
+    <div className="w-full p-6 max-md:p-4 flex flex-col gap-9">
       <div className="flex flex-col gap-4">
         <IconTitle icon="Hotel">신청곡 검색하기</IconTitle>
         <div className="w-full max-w-lg max-md:max-w-full">

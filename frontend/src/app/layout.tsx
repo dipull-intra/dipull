@@ -42,7 +42,10 @@ const RootLayout = ({
         <Providers>
           <div className="w-full h-full flex flex-row">
             <Header />
-            {children}
+            <div className="w-full h-full overflow-y-auto">
+              {children}
+              
+            </div>
           </div>
         </Providers>
       </body>

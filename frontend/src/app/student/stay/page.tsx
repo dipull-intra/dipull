@@ -19,7 +19,7 @@ const Stay = () => {
   }, [selected]);
 
   return (
-    <div className="w-full h-full p-6 max-md:p-4 flex flex-col gap-8 overflow-y-auto">
+    <div className="w-full p-6 max-md:p-4 flex flex-col gap-8">
       <IconTitle icon="Nights">잔류 신청하기</IconTitle>
 
       <Seat

@@ -9,7 +9,7 @@ import Select from "@front/components/select";
 
 const Home = () => {
   return (
-    <div className="w-full h-full p-6 max-md:p-4 flex flex-col gap-9 overflow-y-auto">
+    <div className="w-full p-6 max-md:p-4 flex flex-col gap-9">
       <div className="flex flex-col gap-4 w-full">
         <div className="flex flex-col gap-2 w-full max-w-lg max-md:max-w-full">
           <IconTitle icon="Meal">급식</IconTitle>

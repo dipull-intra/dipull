@@ -32,7 +32,7 @@ const Out = () => {
     }
   ]);
   return (
-    <div className="w-full h-full p-6 max-md:p-4 flex flex-col gap-9 overflow-y-auto">
+    <div className="w-full p-6 max-md:p-4 flex flex-col gap-9">
       <div className="flex flex-col gap-6 w-full max-w-lg max-md:max-w-full">
         <div className="flex flex-col gap-2">
           <IconTitle icon="Nature">외출 신청하기</IconTitle>
